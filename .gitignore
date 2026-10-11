@@ -1,0 +1,14 @@
+build/
+.cache/
+CMakeFiles/
+CMakeCache.txt
+Makefile
+cmake_install.cmake
+
+libs/
+
+Engine
+
+.vscode/
+.history/
+*.log
