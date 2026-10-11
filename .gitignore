@@ -9,8 +9,6 @@ compile_commands.json
 
 libs/
 
-Engine
-
 .vscode/
 .history/
 *.log
