@@ -7,9 +7,11 @@
 
 #include <memory>
 
-struct Sprite : public Component{
-private:
-public:
-    std::shared_ptr<Texture2D> texture;
-    glm::vec4 color = glm::vec4(1);
-};
+namespace uge{
+    struct Sprite : public Component{
+    private:
+    public:
+        std::shared_ptr<Texture2D> texture;
+        glm::vec4 color = glm::vec4(1);
+    };
+}

@@ -6,7 +6,9 @@
 #include <filesystem>
 #include <memory>
 
-class ShaderLoader : public AssetLoader {
-public:
-    std::shared_ptr<Asset> Load(const std::filesystem::path& filePath) override;
-};
+namespace uge{
+    class ShaderLoader : public AssetLoader {
+    public:
+        std::shared_ptr<Asset> Load(const std::filesystem::path& filePath) override;
+    };
+}

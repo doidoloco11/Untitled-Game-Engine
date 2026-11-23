@@ -16,9 +16,9 @@ vec2 vertices[4] = {
     vec2(-1, 1)
 };
 
-layout(location=2)uniform vec3 position;
-layout(location=3)uniform vec2 scale;
-layout(location=4)uniform float angle;
+layout(location=0)uniform vec3 position;
+layout(location=1)uniform vec2 scale;
+layout(location=2)uniform float angle;
 
 layout(location=0)out vec2 uv;
 

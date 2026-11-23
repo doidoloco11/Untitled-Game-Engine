@@ -10,15 +10,17 @@
 #include <unordered_map>
 #include <cstdint>
 
-class Physics : public System{
-private:
-    std::unordered_map<uint64_t, int> uuidToLocalIndex;
+namespace uge{
+    class Physics : public System{
+    private:
+        std::unordered_map<uint64_t, int> uuidToLocalIndex;
 
-    std::vector<Collider*> colliders;
-    std::vector<Transform*> transforms;
-    std::vector<PhysicsBody*> physicsBodys;
-public:
-    using System::System;
+        std::vector<Collider*> colliders;
+        std::vector<Transform*> transforms;
+        std::vector<PhysicsBody*> physicsBodys;
+    public:
+        using System::System;
 
-    void onUpdate(std::vector<Entity>&, const float& deltaTime) override;
-};
+        void onUpdate(std::vector<Entity>&, const float& deltaTime) override;
+    };
+}

@@ -7,12 +7,14 @@
 #include <cstdint>
 #include <optional>
 
-class CameraUpdate : public System{
-public:
-    std::optional<uint64_t> cameraUUID;
+namespace uge{
+    class CameraUpdate : public System{
+    public:
+        std::optional<uint64_t> cameraUUID;
 
-    using System::System;
+        using System::System;
 
-    void onStart(std::vector<Entity>&) override;
-    void onUpdate(std::vector<Entity>&, const float& deltaTime) override;
-};
+        void onStart(std::vector<Entity>&) override;
+        void onUpdate(std::vector<Entity>&, const float& deltaTime) override;
+    };
+}

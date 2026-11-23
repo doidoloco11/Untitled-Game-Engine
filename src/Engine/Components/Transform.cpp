@@ -5,27 +5,29 @@
 #include <vector>
 #include <algorithm>
 
-void Transform::setParent(Transform *parent){
-    if (this->parent) {
-        std::vector<Transform*>& c = this->parent->children;
-        c.erase(std::remove(c.begin(), c.end(), this), c.end());
-    }
-    this->parent = parent;
-    if (parent){
-        parent->children.push_back(this);
-    }
-}
-
-void Transform::Delete(){
-    Component::Delete();
-    
-    if (parent){
-        std::vector<Transform*>& c = parent->children;
-        c.erase(std::remove(c.begin(), c.end(), this), c.end());
+namespace uge{
+    void Transform::setParent(Transform *parent){
+        if (this->parent) {
+            std::vector<Transform*>& c = this->parent->children;
+            c.erase(std::remove(c.begin(), c.end(), this), c.end());
+        }
+        this->parent = parent;
+        if (parent){
+            parent->children.push_back(this);
+        }
     }
 
-    for (Transform*& child : children) {
-        child->parent = nullptr;
+    void Transform::Delete(){
+        Component::Delete();
+        
+        if (parent){
+            std::vector<Transform*>& c = parent->children;
+            c.erase(std::remove(c.begin(), c.end(), this), c.end());
+        }
+
+        for (Transform*& child : children) {
+            child->parent = nullptr;
+        }
+        children.clear();
     }
-    children.clear();
 }

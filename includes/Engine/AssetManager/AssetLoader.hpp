@@ -5,7 +5,9 @@
 #include <memory>
 #include <filesystem>
 
-class AssetLoader{
-public:
-    virtual std::shared_ptr<Asset> Load(const std::filesystem::path& filePath) = 0;
-};
+namespace uge{
+    class AssetLoader{
+    public:
+        virtual std::shared_ptr<Asset> Load(const std::filesystem::path& filePath) = 0;
+    };
+}

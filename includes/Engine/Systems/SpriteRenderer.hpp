@@ -8,16 +8,18 @@
 #include <memory>
 #include <vector>
 
-class SpriteRenderer : public System{
-private:
-    std::shared_ptr<Shader> spriteShader;
-    std::unique_ptr<Texture2D> whiteTexture;
-    GLuint vao;
+namespace uge{
+    class SpriteRenderer : public System{
+    private:
+        std::shared_ptr<Shader> spriteShader;
+        std::unique_ptr<Texture2D> whiteTexture;
+        GLuint vao;
 
-public:
-    using System::System;
+    public:
+        using System::System;
 
-    void onAwake() override;
-    void onRender(std::vector<Entity>&) override;
-    void onTerminate(std::vector<Entity>&) override;
-};
+        void onAwake() override;
+        void onRender(std::vector<Entity>&) override;
+        void onTerminate(std::vector<Entity>&) override;
+    };
+}

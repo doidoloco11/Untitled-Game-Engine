@@ -1,3 +1,5 @@
 #pragma once
 
-struct Asset{};
+namespace uge{
+    struct Asset{};
+}
