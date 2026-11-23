@@ -1,7 +1,6 @@
 #include <Engine/Engine.hpp>
 #include <Engine/Entity.hpp>
 #include <Engine/AssetManager/AssetManager.hpp>
-#include <Engine/SceneManager.hpp>
 
 #include <glad/glad.h>
 #include <GLFW/glfw3.h>
@@ -14,7 +13,6 @@
 namespace uge{
     Engine::Engine(const int& width, const int& height, const std::string& title){
         assetManager = std::make_unique<AssetManager>();
-        sceneManager = std::make_unique<SceneManager>();
         
         if (glfwInit() == GLFW_FALSE) throw std::runtime_error("glfwInit falhou");
 

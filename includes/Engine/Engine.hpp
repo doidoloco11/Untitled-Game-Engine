@@ -3,7 +3,6 @@
 #include <Engine/Entity.hpp>
 #include <Engine/System.hpp>
 #include <Engine/AssetManager/AssetManager.hpp>
-#include <Engine/SceneManager.hpp>
 
 #include <glad/glad.h>
 #include <GLFW/glfw3.h>
@@ -24,7 +23,6 @@ namespace uge{
         GLFWwindow* window;
 
         std::unique_ptr<AssetManager> assetManager;
-        std::unique_ptr<SceneManager> sceneManager;
 
         Engine(const int& width, const int& height, const std::string& title);
         ~Engine();
