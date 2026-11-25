@@ -11,7 +11,7 @@
 namespace uge{
     void CameraUpdate::onStart(std::vector<Entity>& entities){
         for (Entity& entity : entities) {
-            if (entity.getComponent<Camera>() && entity.getComponent<Transform>() && !entity.willBeDeleted){
+            if (entity.getComponent<Camera>() && entity.getComponent<Transform>() && !entity.deleted){
                 cameraUUID = entity.uuid;
                 return;
             }
@@ -60,7 +60,7 @@ namespace uge{
         }
 
         for (Entity& entity : entities) {
-            if (entity.getComponent<Camera>() && entity.getComponent<Transform>() && !entity.willBeDeleted){
+            if (entity.getComponent<Camera>() && entity.getComponent<Transform>() && !entity.deleted){
                 cameraUUID = entity.uuid;
                 return;
             }

@@ -1,4 +1,4 @@
-#include "Engine/Component.hpp"
+
 #include <Engine/Components/Transform.hpp>
 
 #include <pstl/glue_algorithm_defs.h>
@@ -17,8 +17,7 @@ namespace uge{
         }
     }
 
-    void Transform::Delete(){
-        Component::Delete();
+    Transform::~Transform(){
         
         if (parent){
             std::vector<Transform*>& c = parent->children;

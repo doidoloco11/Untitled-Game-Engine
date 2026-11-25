@@ -14,7 +14,7 @@ namespace uge{
         template <typename T>
         static void hashCode(){};
     public:
-        bool willBeDeleted = false;
+        bool deleted = false;
 
         uint64_t uuid;
 
@@ -30,8 +30,9 @@ namespace uge{
         C* getComponent(){
             static_assert(std::is_base_of<Component, C>(), "a struct C não é derivada de Component");
             auto it = components.find(hashCode<C>);
-            if (it != components.end() && !it->second->isDeleted()){
-                return static_cast<C*>(it->second.get());
+            if (it != components.end()){
+                if (it->second->isDeleted()) components.erase(it);
+                else return static_cast<C*>(it->second.get());
             }
             return nullptr;
         }

@@ -30,7 +30,7 @@ namespace uge{
     struct Bin {
         unsigned int triangleCount = 0;
         glm::vec3 min = glm::vec3(FLT_MAX);
-        glm::vec3 max = glm::vec3(FLT_MIN);
+        glm::vec3 max = glm::vec3(-FLT_MAX);
     };
 
     float getBestSplitPointInAxis(int axis, unsigned int first_tri, unsigned int tri_count, const BVH::Node& node, const std::vector<Triangle>& triangles, float& minCost){
@@ -143,7 +143,7 @@ namespace uge{
             nodes.push_back({}); 
             Node& node = nodes.back();
 
-            for (int i = first_tri; i < first_tri + tri_count - 1; i++) {
+            for (int i = first_tri; i < first_tri + tri_count; i++) {
                 glm::vec3 v0 = vertices[triangles[i].idx0];
                 glm::vec3 v1 = vertices[triangles[i].idx1];
                 glm::vec3 v2 = vertices[triangles[i].idx2];

@@ -41,8 +41,7 @@ namespace uge{
             glNamedBufferStorage(ubo, sizeof(CameraData), nullptr, GL_DYNAMIC_STORAGE_BIT);
         }
 
-        void Delete() override{
-            Component::Delete();
+        ~Camera() override{
             glDeleteBuffers(1, &ubo);
         }
     };

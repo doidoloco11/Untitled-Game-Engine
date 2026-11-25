@@ -1,1 +1,1 @@
-para compilar o projeto é necessario instalar glfw e glm
+para compilar o projeto é necessario instalar glfw e o assimp

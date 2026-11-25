@@ -1,5 +1,6 @@
 #pragma once
 
+#include <cfloat>
 #include <glm/glm.hpp>
 
 #include <vector>
@@ -11,7 +12,7 @@ namespace uge{
         public:
             alignas(16) glm::vec3 min = glm::vec3(FLT_MAX);
             alignas(4) unsigned int trianglesindexCount = 0;
-            alignas(16) glm::vec3 max = glm::vec3(FLT_MIN);
+            alignas(16) glm::vec3 max = glm::vec3(-FLT_MAX);
             alignas(4) unsigned int childrenIndex;
 
             bool isLeafNode() {return trianglesindexCount > 0;}

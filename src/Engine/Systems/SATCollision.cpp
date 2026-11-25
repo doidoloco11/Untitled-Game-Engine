@@ -89,7 +89,7 @@ namespace uge{
             }
         }
 
-        for (int i = 0; i < uuid.size() - 1; i++) {
+        for (int i = 0; i + 1 < uuid.size(); i++) {
             for (int j = i + 1; j < uuid.size(); j++) {
                 Collider* thisCollider = colliders[i];
                 Collider* otherCollider = colliders[j];

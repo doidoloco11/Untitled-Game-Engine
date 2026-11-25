@@ -53,6 +53,7 @@ namespace uge{
             systems[i]->onTerminate(entities);
         }
         entities.clear();
+        systems.clear();
 
         glfwDestroyWindow(window);
         glfwTerminate();
@@ -64,7 +65,7 @@ namespace uge{
     }
 
     void Engine::DestroyEntity(Entity& entity){
-        entity.willBeDeleted = true;
+        entity.deleted = true;
     }
 
     void Engine::run(){
@@ -88,7 +89,7 @@ namespace uge{
             }
             
             entities.erase(std::remove_if(entities.begin(), entities.end(),
-            [](Entity& entity) -> bool {return entity.willBeDeleted;}), 
+            [](Entity& entity) -> bool {return entity.deleted;}), 
             entities.end());
 
             glfwSwapBuffers(window);

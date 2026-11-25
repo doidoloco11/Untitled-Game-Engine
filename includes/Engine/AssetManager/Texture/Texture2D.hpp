@@ -1,5 +1,6 @@
 #pragma once
 
+#include "glm/ext/vector_float4.hpp"
 #include <Engine/AssetManager/Asset.hpp>
 #include <Engine/AssetManager/Texture/TextureHandle.hpp>
 
@@ -23,7 +24,7 @@ namespace uge{
         void setPixel(int x, int y, glm::vec4 color) {data[x + width * y] = color;};
         void setPixels(const std::vector<glm::vec4>& pixels);
         void Apply() {glTextureSubImage2D(texture, 0, 0, 0, width, height, GL_RGBA, GL_FLOAT, data.data());}
-        void Sync() {glGetTextureSubImage(texture, 0, 0, 0, 0, width, height, 1, GL_RGBA, GL_FLOAT, data.size(), data.data());}
+        void Sync() {glGetTextureSubImage(texture, 0, 0, 0, 0, width, height, 1, GL_RGBA, GL_FLOAT, data.size() * sizeof(glm::vec4), data.data());}
 
         void getSize(int& width, int& height) {width = this->width; height = this->height;}
         TextureHandle createSamplerHandle(const std::vector<int>& params);

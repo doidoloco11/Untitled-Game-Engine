@@ -18,15 +18,16 @@ namespace uge{
         glm::vec3 position = glm::vec3(0);
         glm::vec3 scale = glm::vec3(1);
         glm::quat rotation = glm::identity<glm::quat>();
+        
+        ~Transform() override;
 
         void setParent(Transform* parent);
-        void Delete() override;
 
         Transform* getParent() {return parent;}
         std::vector<Transform*> getChildren() {return children;}
 
         const glm::mat4 getRotationMatrix(glm::mat4 matrix=glm::identity<glm::mat4>(), Transform* parent=nullptr) const {
-            if (parent) parent->getRotationMatrix(matrix, parent->parent);
+            if (parent) matrix = parent->getRotationMatrix(matrix, parent->parent);
             matrix = matrix * glm::mat4_cast(rotation);
             return matrix;
         }

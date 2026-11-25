@@ -50,6 +50,8 @@ int main(){
 
     cubo.addComponent<Collider>()->model = std::static_pointer_cast<Model>(engine.assetManager->LoadAsset("modelo 3d/cube.obj"));
     cubo.addComponent<PhysicsBody>()->type = PhysicsBody::Static;
+    
+    printf("%s\n", typeid(Transform).name());
 
     engine.run();
 

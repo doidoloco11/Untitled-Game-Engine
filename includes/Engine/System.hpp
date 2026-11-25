@@ -12,6 +12,8 @@ namespace uge{
         Engine* engine;
     public:
         System(Engine* engine) : engine(engine) {}
+        virtual ~System() = default;
+
         virtual void onAwake() {};
         virtual void onResizeWindow(std::vector<Entity>&, const int& width, const int& height) {};
         

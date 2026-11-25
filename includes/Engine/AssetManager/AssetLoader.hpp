@@ -8,6 +8,7 @@
 namespace uge{
     class AssetLoader{
     public:
+        virtual ~AssetLoader() = default;
         virtual std::shared_ptr<Asset> Load(const std::filesystem::path& filePath) = 0;
     };
 }

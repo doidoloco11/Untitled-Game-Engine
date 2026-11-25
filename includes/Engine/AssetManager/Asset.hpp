@@ -1,5 +1,8 @@
 #pragma once
 
 namespace uge{
-    struct Asset{};
+    struct Asset{
+    public:
+        virtual ~Asset() = default;
+    };
 }
